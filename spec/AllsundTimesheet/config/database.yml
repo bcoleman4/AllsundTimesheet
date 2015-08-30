@@ -4,8 +4,8 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  #adapter: sqlite3
-  database: ":memory:"
+  adapter: sqlite3
+  database: db/development.sqlite3
 test:
   adapter: sqlite3
   database: db/test.sqlite3
