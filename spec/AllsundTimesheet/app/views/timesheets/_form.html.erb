@@ -1,0 +1,17 @@
+<%= simple_form_for(@timesheet) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :date %>
+    <%= f.association :employee %>
+    <%= f.association :activity %>
+    Time
+      <%= f.select :day_id,(options_from_collection_for_select(Day.all, :id, :timeslot)) %>
+    <%= f.association :workstream %>
+    <%= f.input :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

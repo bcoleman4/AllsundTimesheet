@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Workstreams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workstreams.each do |workstream| %>
+      <tr>
+        <td><%= workstream.name %></td>
+        <td><%= workstream.notes %></td>
+        <td><%= link_to 'Show', workstream %></td>
+        <td><%= link_to 'Edit', edit_workstream_path(workstream) %></td>
+        <td><%= link_to 'Destroy', workstream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Workstream', new_workstream_path %>
+<%= link_to 'Dashboard', '/' %>

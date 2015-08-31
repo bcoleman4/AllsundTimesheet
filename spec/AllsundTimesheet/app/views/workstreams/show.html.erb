@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @workstream.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @workstream.notes %>
+</p>
+
+<%= link_to 'Edit', edit_workstream_path(@workstream) %> |
+<%= link_to 'Back', workstreams_path %>

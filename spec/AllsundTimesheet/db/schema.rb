@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831133807) do
+ActiveRecord::Schema.define(version: 20150831173845) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "client_id"
+    t.decimal  "budget"
+    t.decimal  "revenue"
+    t.boolean  "chargeable"
+    t.boolean  "productive"
+    t.boolean  "utilised"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "activities", ["client_id"], name: "index_activities_on_client_id"
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "costs", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +41,12 @@ ActiveRecord::Schema.define(version: 20150831133807) do
     t.string   "notes"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.string   "timeslot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -55,6 +83,22 @@ ActiveRecord::Schema.define(version: 20150831133807) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "timesheets", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "employee_id"
+    t.integer  "activity_id"
+    t.integer  "day_id"
+    t.integer  "workstream_id"
+    t.string   "notes"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "timesheets", ["activity_id"], name: "index_timesheets_on_activity_id"
+  add_index "timesheets", ["day_id"], name: "index_timesheets_on_day_id"
+  add_index "timesheets", ["employee_id"], name: "index_timesheets_on_employee_id"
+  add_index "timesheets", ["workstream_id"], name: "index_timesheets_on_workstream_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.boolean  "admin"
@@ -62,6 +106,13 @@ ActiveRecord::Schema.define(version: 20150831133807) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "last_name"
+  end
+
+  create_table "workstreams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

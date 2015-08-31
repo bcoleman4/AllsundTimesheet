@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  client_id: 
+  budget: 9.99
+  revenue: 9.99
+  chargeable: false
+  productive: false
+  utilised: false
+  notes: MyString
+
+two:
+  name: MyString
+  client_id: 
+  budget: 9.99
+  revenue: 9.99
+  chargeable: false
+  productive: false
+  utilised: false
+  notes: MyString

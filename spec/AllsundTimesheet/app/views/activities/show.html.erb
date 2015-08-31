@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @activity.client.name %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @activity.budget %>
+</p>
+
+<p>
+  <strong>Revenue:</strong>
+  <%= @activity.revenue %>
+</p>
+
+<p>
+  <strong>Chargeable:</strong>
+  <%= @activity.chargeable %>
+</p>
+
+<p>
+  <strong>Productive:</strong>
+  <%= @activity.productive %>
+</p>
+
+<p>
+  <strong>Utilised:</strong>
+  <%= @activity.utilised %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @activity.notes %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>
