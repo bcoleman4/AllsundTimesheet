@@ -2,7 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def charts
+  def chartsold
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title({ :text=>"Combination chart"})
       f.options[:xAxis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
@@ -78,6 +78,6 @@ class ApplicationController < ActionController::Base
       f.plot_options({:column=>{:stacking=>"percent"}})
     end
 
-    render "charts" , layout: "application"
+    render "chartsold" , layout: "application"
   end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :costs
   resources :rates
   get '/charts', to: 'application#charts'
+  get '/chartsold', to: 'application#chartsold'
   get '/', to: 'application#Dashboard'
 end
 
